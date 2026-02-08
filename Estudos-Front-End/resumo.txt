@@ -1,123 +1,421 @@
-Resumo de estudo HTML, CSS e JAVASCRIPT 
+# 📘 Resumo de Estudos — HTML, CSS e JavaScript
 
-HTML - Línguagem de marcação de Híper-Texto 
+Este documento organiza os principais conceitos iniciais de **HTML**, **CSS** e **JavaScript**, servindo como um guia de consulta e estudo.
 
-informação x estrutura
+---
 
-index.html => Normalmente é o nome do arquivo principal da página HTML 
+## 🟠 HTML (HyperText Markup Language)
 
-*tags 
+HTML é uma **linguagem de marcação**, responsável pela **estrutura e significado do conteúdo** da página.
 
-<head></head> => Configurações da página 
+> **HTML = estrutura**
+> **CSS = aparência**
+> **JavaScript = comportamento**
 
-<p></p> => Páragrafo 
+### 📄 Arquivo principal
 
-<hr /> => Linha de separação do conteúdo 
+* **index.html** → normalmente é o arquivo principal de uma página web.
 
-<br /> => Quebra de linha 
+---
 
-<i></i> => Itálico 
+### 🏷️ Tags básicas
 
-<b></b> => Negrito 
+* `<head></head>` → Configurações da página (título, CSS, meta informações)
+* `<p></p>` → Parágrafo
+* `<hr />` → Linha horizontal de separação
+* `<br />` → Quebra de linha
+* `<i></i>` → Itálico
+* `<b></b>` → Negrito
+* `<u></u>` → Sublinhado
 
-<u></u> => Sublinhado 
+---
 
-<h1></h1> => Título principal da página
-<h2></h2> => Título secundário da página 
-<h3></h3> => Niveis abaixo do principal 
+### 🧱 Títulos
 
-*Tags com própriedades especiais
+* `<h1></h1>` → Título principal da página
+* `<h2></h2>` → Subtítulo
+* `<h3></h3>` → Níveis abaixo do principal
 
-<img src="" /> => Imagem, src (source) 
+---
 
-<a href></a> => Link, href (Referência do Link) 
+### 🔗 Tags com atributos especiais
 
-<ul> <li></li> </ul> => Lista , li (itens da lista) 
+* `<img src="" />` → Imagem (`src` = source / caminho da imagem)
+* `<a href=""></a>` → Link (`href` = endereço do link)
+* `<ul><li></li></ul>` → Lista não ordenada
+* `<ol><li></li></ol>` → Lista ordenada
+* `<input type="text" value="Hello World" />` → Campo de entrada de texto
+* `<table><tr><td></td></tr></table>` → Tabela
 
-<ol> <li></li> </ol> => Lista ordenada , li (itens da lista) 
+  * `tr` → linha
+  * `td` → coluna
 
-<input type="text" value="Hello World" /> => Criar ujm campo
+#### Atributos importantes
 
-*CSS-Dentro das tags do html (Algumas tags)
+* `disabled` → Desabilita a edição do campo pelo usuário
 
-color: "" => Cor 
+---
 
-background-color: "" => Cor de fundo 
+## 🔵 CSS (Cascading Style Sheets)
 
-boder: px => Borda (largura), px (EX: 1px), 
+CSS é responsável pela **aparência visual** da página.
 
-solid => Borda sólida por exemplo, ou até a cor da borda ( solid red ) 
+### 🎨 Propriedades básicas
 
-*tag style, dentro do head, sempre pois o head renderiza a página, e carrega o css primeiro junto com as configurações da página
+* `color` → Cor do texto
+* `background-color` → Cor de fundo
+* `border` → Borda (largura, estilo e cor)
 
-<head>
-    <title>Olá</title>
-    <style>
-      p {
-        color: darkgray;
-        border: 10px solid cyan;
-        background-color: blueviolet;
-      }
+  * Exemplo: `border: 1px solid red;`
 
-      h1 {
-        color: blue;
-      }
-    </style>
-  </head> 
+---
 
-Ela define que, neste caso, todos os parágrafos ( p ), fiquem com os atributos que estão no style{} 
+### 📍 CSS dentro do HTML (`<style>`)
 
-Tem duas formas de definir o estilo. 
-- Pelo nome da tag, como o style{} acima com o <p> e o <h1>. 
-- E por uma classe de estilo (class) 
-Primeira palavra minuscula e segunda maiúscula
-    .primeiroParagrafo {
-        background-color: blueviolet;
-      } 
-    - Classe CSS (Cascading Style Sheet) 
-O estilo ele vai se acumulando de cima para baixo. 
+O CSS pode ser colocado dentro da tag `<style>`, que fica no `<head>` da página.
 
-Então se eu quero alterar todas as tags, uso o nome da tag p{}, mas se quero alterar várias tags, mas não todas uso a classe. 
+O navegador carrega o CSS **antes de renderizar o conteúdo visual**.
 
-Se eu quero estilizar apenas uma tag, e não poluir o código com style no html, uso um ID ( # )
-#logo {
-        width: 200px
-      } 
+O exemplo abaixo define estilos para **todas** as tags `<p>` e `<h1>`:
 
-Para o css usar a folha de estilo, 
-<link rel="stylesheet" href="style.css" />
-  </head> 
+* Seletores por **nome da tag** aplicam o estilo a todas as ocorrências.
 
-*JavaScript 
+---
 
-A página quando renderiza css e html ele percebe o JS e ele não renderiza, ele entende que aquilo é algo de confuguração e manda pra um motor JS. O google este software chamado V8, ele processa e devolve o resultado pro navegador. 
+### 🎯 Seletores CSS
 
-alert("Hello World") => Função para exibir um pop up, notificação na página.
+#### 1️⃣ Por tag
 
-Quando o navegar tá vendo cada tag do html ele passa um por um, e quando chega no <script></script> ele para o que ta fazendo e no caso do alert ele não redenriza o restante da página do navegador até o usuário clicar no botão de confirmação, pois alert uma função bloqueante. 
+* Exemplo: `p { }`, `h1 { }`
+* Aplica o estilo a **todas** as tags daquele tipo
 
-O JS ele tem acesso estando embutido na janela do navegador, a um objeto chamado Window (API).
+#### 2️⃣ Por classe (`class`)
 
-- alert(window.location.href) => Barra de endereço do navegador 
-- alert(window.location.source) => Pega um pedaço da url que vem os parâmetros, pega tudo que vem depois do ponto de interrogação da url
-- alert(window.hitory) => Pega as páginas acesadas nesta aba do navegador 
+* Classe começa com `.` no CSS
+* Usada para estilizar **vários elementos**, mas não todos
 
-Outra API, Document (A página que o usuário esta navegando), com ele eu posso varrer e modificar o próprio html da página 
+Padrão comum de nome:
 
-<input type="text" id="inputExemplo" value="Hello World" /> => Neste caso eu pego o ID desse input.
-<script>
-    const input = document.getElementById("inputExemplo");
-    alert(input.value);
-</script>
+* primeira palavra minúscula
+* segunda palavra maiúscula (camelCase)
 
-Eu passo o ID do input que esta no html para essa função, ela guarda nessa variável input dentro do script JS. Abaixo o alert mostra via pop up no navegador o que foi preenchido no input 
+Exemplo:
 
-É possivel mudar o conteúdo do input 
-input.value = "Luan" 
+* `.primeiroParagrafo { }`
 
-A manipulação do objeto document, se chama DOM (Document-Object Modeling) 
+#### 3️⃣ Por ID (`id`)
 
-Propriedades que começam com on, são eventos, são as ações do componente, por exemplo o onclick, que ao clicar no componente com essa propriedade, ela dispara um evento. 
+* ID começa com `#` no CSS
+* Usado para estilizar **apenas um elemento específico**
 
-<button onclick="alert(input.value)">Click Me</button> => Um botão com um enevto onclick (todas as propriedades recebem somente código JS).
-Mas não fica tão legal, pois além de poder ter um código imenso dentro deas aspas, poluído. Então criar uma função que faça isso, e colcar o nome dela dentro das aspas, é a melhor opção.
+Exemplo:
+
+* `#logo { width: 200px; }`
+
+---
+
+### 📄 CSS externo
+
+Para usar um arquivo CSS separado:
+
+* Criar um arquivo `style.css`
+* Importar no HTML dentro do `<head>`:
+
+`<link rel="stylesheet" href="style.css" />`
+
+---
+
+### 📐 Cascata do CSS
+
+* O CSS é **cascateado** (aplicado de cima para baixo)
+* Estilos mais específicos sobrescrevem os mais genéricos
+
+---
+
+## 🟡 JavaScript
+
+JavaScript adiciona **comportamento e interatividade** à página.
+
+Quando o navegador encontra JavaScript:
+
+* Ele envia o código para um **motor JavaScript**
+* No Google Chrome, esse motor é o **V8**
+
+---
+
+### ⚠️ Script bloqueante
+
+* Quando o navegador encontra `<script>`, ele **pausa o carregamento da página**
+* Funções como `alert()` são **bloqueantes**
+
+Exemplo:
+
+* `alert("Hello World")` → Exibe um pop-up
+
+---
+
+### 🌐 Objeto Window
+
+O JavaScript no navegador tem acesso ao objeto global **Window**:
+
+* `window.location.href` → URL atual
+* `window.location.search` → Parâmetros da URL (após `?`)
+* `window.history` → Histórico de navegação da aba
+
+---
+
+### 📄 Objeto Document (DOM)
+
+O **Document** representa a página HTML carregada.
+
+* Permite acessar e modificar elementos HTML
+* Essa manipulação é chamada de **DOM (Document Object Model)**
+
+Exemplo:
+
+* `document.getElementById("inputExemplo")` → Seleciona um elemento pelo ID
+
+---
+
+### ✏️ Manipulação de elementos
+
+* Atributos e valores podem ser lidos ou alterados
+* Exemplo: alterar o valor de um input
+
+`input.value = "Luan"`
+
+---
+
+### ⚡ Eventos
+
+* Propriedades que começam com `on` são **eventos**
+* Exemplo comum:
+
+  * `onclick` → Disparado ao clicar
+
+Exemplo:
+
+* Um botão que executa JavaScript ao ser clicado
+
+⚠️ Evite colocar muito código diretamente no HTML.
+
+✔️ **Boa prática**: criar funções no JavaScript e chamá-las no evento.
+
+---
+
+## 🟠 HTML (continuação — mais tags e conceitos)
+
+### 🧩 Estrutura semântica (HTML5)
+
+Essas tags ajudam a **organizar melhor o conteúdo** e melhorar acessibilidade e SEO:
+
+* `<header>` → Cabeçalho da página ou seção
+* `<nav>` → Área de navegação (menus)
+* `<main>` → Conteúdo principal da página
+* `<section>` → Seção de conteúdo
+* `<article>` → Conteúdo independente (post, card, notícia)
+* `<aside>` → Conteúdo lateral
+* `<footer>` → Rodapé
+
+---
+
+### ✍️ Outras tags de texto
+
+* `<span>` → Elemento inline para pequenos trechos
+* `<small>` → Texto menor
+* `<mark>` → Texto marcado (highlight)
+* `<code>` → Código em linha
+* `<pre>` → Texto pré-formatado
+* `<strong>` → Importância (semântica)
+* `<em>` → Ênfase (semântica)
+
+---
+
+### 🧾 Formulários (básico)
+
+* `<form>` → Formulário
+* `<label>` → Rótulo de campo
+* `<input type="text">` → Texto
+* `<input type="password">` → Senha
+* `<input type="email">` → Email
+* `<input type="number">` → Número
+* `<input type="checkbox">` → Caixa de seleção
+* `<input type="radio">` → Seleção única
+* `<textarea>` → Texto longo
+* `<select><option>` → Lista suspensa
+* `<button>` → Botão
+
+Atributos comuns:
+
+* `placeholder` → Texto de dica
+* `required` → Campo obrigatório
+* `readonly` → Somente leitura
+* `name` → Nome do campo
+
+---
+
+## 🔵 CSS (continuação — mais conceitos)
+
+### 📦 Box Model (muito importante)
+
+Todo elemento é uma caixa composta por:
+
+* `content` → Conteúdo
+* `padding` → Espaço interno
+* `border` → Borda
+* `margin` → Espaço externo
+
+Propriedade útil:
+
+* `box-sizing: border-box;`
+
+---
+
+### 📏 Medidas CSS
+
+* `px` → pixels (fixo)
+* `%` → relativo ao elemento pai
+* `vw` / `vh` → largura / altura da tela
+* `em` → relativo ao elemento pai
+* `rem` → relativo ao `html`
+
+---
+
+### 🖋️ Fontes e texto
+
+* `font-family`
+* `font-size`
+* `font-weight`
+* `text-align`
+* `line-height`
+* `text-decoration`
+
+---
+
+### 🎯 Display e posicionamento
+
+* `display: block;`
+
+* `display: inline;`
+
+* `display: inline-block;`
+
+* `display: none;`
+
+* `position: static;`
+
+* `position: relative;`
+
+* `position: absolute;`
+
+* `position: fixed;`
+
+* `position: sticky;`
+
+---
+
+### 🧲 Flexbox (noção básica)
+
+Usado para layout em linha ou coluna:
+
+* `display: flex;`
+* `flex-direction`
+* `justify-content`
+* `align-items`
+* `gap`
+
+---
+
+### 🎨 Pseudo-classes
+
+* `:hover` → ao passar o mouse
+* `:active` → ao clicar
+* `:focus` → ao focar
+* `:first-child`
+* `:last-child`
+
+---
+
+## 🟡 JavaScript (continuação — conceitos básicos)
+
+### 🔤 Variáveis
+
+* `var` → antiga (evitar)
+* `let` → variável mutável
+* `const` → constante
+
+---
+
+### 🔢 Tipos de dados
+
+* `string`
+* `number`
+* `boolean`
+* `null`
+* `undefined`
+* `object`
+* `array`
+
+---
+
+### 🧠 Estruturas básicas
+
+* `if / else`
+* `switch`
+* `for`
+* `while`
+* `forEach`
+
+---
+
+### 🔧 Funções
+
+* Função simples
+* Função com parâmetros
+* Função com retorno
+
+---
+
+### 📄 DOM (mais métodos úteis)
+
+* `document.querySelector()`
+* `document.querySelectorAll()`
+* `element.innerText`
+* `element.innerHTML`
+* `element.classList.add()`
+* `element.classList.remove()`
+* `element.style`
+
+---
+
+### 🎯 Eventos comuns
+
+* `click`
+* `change`
+* `input`
+* `submit`
+* `keydown`
+
+---
+
+## 🧠 Boas práticas iniciais
+
+* Separar HTML, CSS e JS
+* Evitar CSS inline
+* Usar nomes claros para classes e IDs
+* Manter o código organizado
+* Comentar quando necessário
+
+---
+
+## ✅ Conclusão
+
+Este resumo serve como **guia rápido de revisão**.
+
+A ideia não é decorar tudo, mas **bater o olho e lembrar**:
+
+* O que cada tecnologia faz
+* Quais ferramentas existem
+* Onde procurar quando precisar
+
+Conforme o estudo avança, esse material pode crescer junto.

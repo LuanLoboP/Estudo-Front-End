@@ -1,0 +1,18 @@
+button {
+  width: 39;
+}
+
+.btnOperadores {
+  color: black;
+  background-color: tomato;
+}
+
+.btnNumeros {
+  color: black;
+  background-color: tomato;
+}
+
+.input {
+  color: black;
+  background-color: gray;
+}
