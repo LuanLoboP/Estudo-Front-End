@@ -1,0 +1,26 @@
+p {
+  color: darkgray;
+  border: 10px solid red;
+  background-color: blueviolet;
+}
+
+h1 {
+  color: blue;
+}
+
+.primeiroParagrafo {
+  border-color: deeppink;
+  background-color: blueviolet;
+}
+
+.subtitulo {
+  font-size: 25px;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 100;
+}
+
+#logo {
+  width: 150\px;
+}

@@ -1,0 +1,123 @@
+Resumo de estudo HTML, CSS e JAVASCRIPT 
+
+HTML - Línguagem de marcação de Híper-Texto 
+
+informação x estrutura
+
+index.html => Normalmente é o nome do arquivo principal da página HTML 
+
+*tags 
+
+<head></head> => Configurações da página 
+
+<p></p> => Páragrafo 
+
+<hr /> => Linha de separação do conteúdo 
+
+<br /> => Quebra de linha 
+
+<i></i> => Itálico 
+
+<b></b> => Negrito 
+
+<u></u> => Sublinhado 
+
+<h1></h1> => Título principal da página
+<h2></h2> => Título secundário da página 
+<h3></h3> => Niveis abaixo do principal 
+
+*Tags com própriedades especiais
+
+<img src="" /> => Imagem, src (source) 
+
+<a href></a> => Link, href (Referência do Link) 
+
+<ul> <li></li> </ul> => Lista , li (itens da lista) 
+
+<ol> <li></li> </ol> => Lista ordenada , li (itens da lista) 
+
+<input type="text" value="Hello World" /> => Criar ujm campo
+
+*CSS-Dentro das tags do html (Algumas tags)
+
+color: "" => Cor 
+
+background-color: "" => Cor de fundo 
+
+boder: px => Borda (largura), px (EX: 1px), 
+
+solid => Borda sólida por exemplo, ou até a cor da borda ( solid red ) 
+
+*tag style, dentro do head, sempre pois o head renderiza a página, e carrega o css primeiro junto com as configurações da página
+
+<head>
+    <title>Olá</title>
+    <style>
+      p {
+        color: darkgray;
+        border: 10px solid cyan;
+        background-color: blueviolet;
+      }
+
+      h1 {
+        color: blue;
+      }
+    </style>
+  </head> 
+
+Ela define que, neste caso, todos os parágrafos ( p ), fiquem com os atributos que estão no style{} 
+
+Tem duas formas de definir o estilo. 
+- Pelo nome da tag, como o style{} acima com o <p> e o <h1>. 
+- E por uma classe de estilo (class) 
+Primeira palavra minuscula e segunda maiúscula
+    .primeiroParagrafo {
+        background-color: blueviolet;
+      } 
+    - Classe CSS (Cascading Style Sheet) 
+O estilo ele vai se acumulando de cima para baixo. 
+
+Então se eu quero alterar todas as tags, uso o nome da tag p{}, mas se quero alterar várias tags, mas não todas uso a classe. 
+
+Se eu quero estilizar apenas uma tag, e não poluir o código com style no html, uso um ID ( # )
+#logo {
+        width: 200px
+      } 
+
+Para o css usar a folha de estilo, 
+<link rel="stylesheet" href="style.css" />
+  </head> 
+
+*JavaScript 
+
+A página quando renderiza css e html ele percebe o JS e ele não renderiza, ele entende que aquilo é algo de confuguração e manda pra um motor JS. O google este software chamado V8, ele processa e devolve o resultado pro navegador. 
+
+alert("Hello World") => Função para exibir um pop up, notificação na página.
+
+Quando o navegar tá vendo cada tag do html ele passa um por um, e quando chega no <script></script> ele para o que ta fazendo e no caso do alert ele não redenriza o restante da página do navegador até o usuário clicar no botão de confirmação, pois alert uma função bloqueante. 
+
+O JS ele tem acesso estando embutido na janela do navegador, a um objeto chamado Window (API).
+
+- alert(window.location.href) => Barra de endereço do navegador 
+- alert(window.location.source) => Pega um pedaço da url que vem os parâmetros, pega tudo que vem depois do ponto de interrogação da url
+- alert(window.hitory) => Pega as páginas acesadas nesta aba do navegador 
+
+Outra API, Document (A página que o usuário esta navegando), com ele eu posso varrer e modificar o próprio html da página 
+
+<input type="text" id="inputExemplo" value="Hello World" /> => Neste caso eu pego o ID desse input.
+<script>
+    const input = document.getElementById("inputExemplo");
+    alert(input.value);
+</script>
+
+Eu passo o ID do input que esta no html para essa função, ela guarda nessa variável input dentro do script JS. Abaixo o alert mostra via pop up no navegador o que foi preenchido no input 
+
+É possivel mudar o conteúdo do input 
+input.value = "Luan" 
+
+A manipulação do objeto document, se chama DOM (Document-Object Modeling) 
+
+Propriedades que começam com on, são eventos, são as ações do componente, por exemplo o onclick, que ao clicar no componente com essa propriedade, ela dispara um evento. 
+
+<button onclick="alert(input.value)">Click Me</button> => Um botão com um enevto onclick (todas as propriedades recebem somente código JS).
+Mas não fica tão legal, pois além de poder ter um código imenso dentro deas aspas, poluído. Então criar uma função que faça isso, e colcar o nome dela dentro das aspas, é a melhor opção.
